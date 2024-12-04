@@ -3,7 +3,6 @@ import { AsistenciaSeccionPage } from './asistencia-seccion.page'; // Asegúrate
 import { StorageService } from 'src/app/storage.service'; // Asegúrate de importar StorageService
 import { Storage } from '@ionic/storage-angular'; // Asegúrate de que la ruta de Storage sea correcta
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { of } from 'rxjs'; // Importamos `of` para crear un observable
 
 describe('AsistenciaSeccionPage', () => {
   let fixture: ComponentFixture<AsistenciaSeccionPage>;

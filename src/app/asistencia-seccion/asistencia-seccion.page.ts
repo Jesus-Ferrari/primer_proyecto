@@ -102,12 +102,12 @@ export class AsistenciaSeccionPage{
   }
 
   GenerarQR() {
+    console.log('Sección seleccionada:', this.seccionSeleccionada);
     this.router.navigate(['generar-qr'], {
       state: {
-        seccionSeleccionada: this.seccionSeleccionada, // Pasar la sección seleccionada
+        seccionSeleccionada: this.seccionSeleccionada,
       }
     });
-  }
-  
+  }  
 
 }
