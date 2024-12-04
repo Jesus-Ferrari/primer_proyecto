@@ -11,7 +11,7 @@ describe('GenerarQrPage', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('P1: Creacion exitosa del componente', () => {
     expect(component).toBeTruthy();
   });
 });
