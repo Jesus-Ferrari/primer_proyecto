@@ -1,17 +1,28 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { LoginPage } from './login.page';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+//Configura el ambiente de prueba//
 describe('LoginPage', () => {
-  let component: LoginPage;
-  let fixture: ComponentFixture<LoginPage>;
+  beforeEach(async()  => {
+    await TestBed.configureTestingModule({
+      imports: [
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(LoginPage);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        ReactiveFormsModule,
+        FormsModule,
+        LoginPage
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+      ],
+    }).compileComponents //FIn TestBed
+
+  }) //Fin before
+
+  // Prueba 1: Carge page Login//
+  it('P1: Existencia de la page Login', ()  => {
+    const fixture = TestBed.createComponent(LoginPage);
+    const app = fixture.componentInstance;
+
+    expect(app).toBeTruthy();
+  }) //Fin it 1
+
 });
