@@ -30,13 +30,15 @@ export class GenerarQrPage implements OnInit {
 
   async ngOnInit() {
     const navigation = this.router.getCurrentNavigation();
-
+  
     if (navigation && navigation.extras.state) {
       this.seccionSeleccionada = navigation.extras.state['seccionSeleccionada'];
+      console.log('Sección seleccionada en GenerarQrPage:', this.seccionSeleccionada);
     } else {
       console.error('No se recibieron datos desde asistencia-seccion.');
     }
   }
+  
 
 
   generateQRCode() {
