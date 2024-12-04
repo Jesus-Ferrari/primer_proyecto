@@ -28,7 +28,7 @@ describe('AdminPage', () => {
     component = fixture.componentInstance;
   });
 
-  it('should create', () => {
+  it('Existencia de la pagina admin', () => {
     expect(component).toBeTruthy(); // Verifica que la página fue creada
   });
 });
