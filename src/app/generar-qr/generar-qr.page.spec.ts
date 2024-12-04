@@ -21,8 +21,13 @@ describe('GenerarQrPage', () => {
 
   it('P3: Generación del código QR al pulsar un botón', () => {
     component.qrData = 'Prueba QR';
+    component.seccionSeleccionada = { nombreSeccion: 'Sección A', siglaSeccion: 'SA' };
     component.generateQRCode();
-    expect(component.createdCode).toBe('Prueba QR');
+
+    const formattedDate = new Date().toLocaleDateString();
+    
+    const expectedCode = `Prueba QR - ${formattedDate} - Sección: Sección A (SA)`;
+    expect(component.createdCode).toBe(expectedCode);
   });
 
 });
