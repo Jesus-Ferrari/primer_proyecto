@@ -14,4 +14,8 @@ describe('GenerarQrPage', () => {
   it('P1: Creacion exitosa del componente', () => {
     expect(component).toBeTruthy();
   });
+
+  it('P2: Valor inicial de qrData', () => {
+    expect(component.qrData).toBe('Fecha de clases ');
+  });
 });
