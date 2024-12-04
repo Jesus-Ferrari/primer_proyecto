@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background: rgb(13, 13, 92);">
+    <ion-title style="color: white; font-family: 'Calibri'"><b>Generar QR</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="logo-container">
+    <img class="logo" src="/assets/icon/logoduocuc2.png" alt="">
+  </div>
+
+  <div class="tittle-login">
+    <h1><b>REGISTRO DE ASISTENCIA</b></h1>
+    <h1><b>{{ seccionSeleccionada?.nombreSeccion }}  {{ seccionSeleccionada?.siglaSeccion }}</b></h1>
+  </div>
+  <br>
+
+  <div class="logo-container">
+    <ion-button #button expand="block" style="--background: rgb(255, 196, 0); width: 300px; margin-top: 50px;" (click)="generateQRCode()">Generar QR</ion-button>
+  </div>
+  
+
+  <div class="logo-container" *ngIf="createdCode" >
+    <qrcode [qrdata]="createdCode" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+  </div>
+
+  <div class="logo-container">
+    <ion-button #button2 expand="block" style="--background: rgb(13, 13, 92); width: 300px;" (click)="VolverAlListadoAlumn()">VOLVER AL LISTADO DE ALUMNOS</ion-button>
+  </div>
+
+</ion-content>

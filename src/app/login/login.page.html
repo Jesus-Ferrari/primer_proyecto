@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background: rgb(13, 13, 92);">
+    <ion-title style="color: white; font-family: 'Calibri'"><b>Login</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="logo-container">
+    <img #logo class="logo" src="/assets/icon/logoduocuc2.png" alt="">
+  </div>
+  <br>
+  <div>
+    <h1 #title class="tittle-login"><b>Inicio de Sesión</b></h1>
+  </div>
+  <br>
+
+  <div class="form-login">
+    <form [formGroup]="loginForm" (ngSubmit)="OnLogin()">
+      <ion-item>
+        <ion-label style="color: blue;font-size: 25px;" position="stacked"><b>Tipo de Usuario</b></ion-label>
+        <ion-select formControlName="typeuser" placeholder="Seleccione" position="stacked">
+          <ion-select-option value=""></ion-select-option>
+          <ion-select-option value="Docente">Docente</ion-select-option>
+          <ion-select-option value="Estudiante">Estudiante</ion-select-option>
+          <ion-select-option value="Administrador">Administrador</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <div *ngIf="loginForm.get('typeuser')?.invalid && loginForm.get('typeuser')?.touched" style="padding: 20px;color: red;">Debe seleccionar un tipo</div>
+      <br>
+      <ion-item>
+        <ion-label style="color: blue;font-size: 25px;" position="stacked"><b>Usuario</b></ion-label>
+        <ion-input formControlName="username" type="text" placeholder="Nombre de usuario"></ion-input>
+      </ion-item>
+      <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" style="padding: 20px;color: red;">Usuario de mínimo 6 caracteres</div>
+
+      <br>
+      <ion-item>
+        <ion-label style="color: blue;font-size: 25px;" position="stacked"><b>Contraseña</b></ion-label>
+        <ion-input formControlName="password" type="password" placeholder="********"></ion-input>
+      </ion-item>
+      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" style="padding: 20px;color: red;">Contraseña de min. 8 a max. 15 caracteres</div>
+
+      <div>
+        <ion-item lines="none">
+          <ion-label>
+            <button ion-button fill="clear" (click)="IrOlvidePass()" style="color: rgb(0, 174, 255); font-size: 15px; text-decoration: underline; background: none; border: none; padding: 0;">
+              <b>¿Olvidó su contraseña? Haga clic aquí</b>
+            </button>
+          </ion-label>
+        </ion-item>
+      </div>
+      
+
+      <br>
+      <div class="logo-container">
+        <ion-button #button expand="block" type="submit [disabled]=loginForm.valid" style="--background: rgb(255, 196, 0); width: 300px" >Ingresar</ion-button>
+      </div>
+
+    </form>
+
+    <div class="logo-container">
+      <ion-button #button2 expand="block" style="--background: rgb(13, 13, 92); width: 300px;" (click)="Registrarse()">Registrarse</ion-button>
+    </div>
+    
+  </div>
+
+</ion-content>

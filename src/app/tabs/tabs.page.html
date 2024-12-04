@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+</ion-header>
+
+<ion-content>
+  <ion-tabs>
+    <ion-tab-bar slot="buttom">
+
+      <ion-tab-button tab="admin">
+        <ion-icon name="person"></ion-icon>
+        <ion-label>Usuario Nuevo</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="adminseccion">
+        <ion-icon name="book"></ion-icon>
+        <ion-label>Seccion Nueva</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button (click)="SalirAlLogin()">
+        <ion-icon name="exit"></ion-icon>
+        <ion-label>Salir</ion-label>
+      </ion-tab-button>
+
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

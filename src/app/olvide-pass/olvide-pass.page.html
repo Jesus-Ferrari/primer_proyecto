@@ -1,0 +1,64 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background: rgb(13, 13, 92);">
+    <ion-title style="color: white; font-family: 'Calibri'"><b>Olvide la contraseña</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="logo-container">
+    <img class="logo" src="/assets/icon/logoduocuc2.png" alt="">
+  </div>
+  <br>
+  <div>
+    <h1 class="tittle-login"><b>¿Olvido su contraseña?</b></h1>
+  </div>
+
+  <div class="password-form">
+    <form [formGroup]="passwordForm" (ngSubmit)="CambiarPassword()">
+      <ion-item>
+        <ion-label style="color: blue;font-size: 25px;" position="stacked"><b>Tipo de Usuario</b></ion-label>
+        <ion-select formControlName="typeuser" placeholder="Seleccione" position="stacked">
+          <ion-select-option value=""></ion-select-option>
+          <ion-select-option value="Docente">Docente</ion-select-option>
+          <ion-select-option value="Estudiante">Estudiante</ion-select-option>
+          <ion-select-option value="Administrador">Administrador</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <div *ngIf="passwordForm.get('typeuser')?.invalid && passwordForm.get('typeuser')?.touched" style="padding: 20px;color: red;">Debe seleccionar un tipo</div>
+      
+      <ion-item>
+        <ion-label style="color: blue;font-size: 25px;" position="stacked"><b>Correo Electronico</b></ion-label>
+        <ion-label style="color: gray;font-size: 15px; font-style: italic;" position="stacked"><b>(El correo electronico que esta asociado a su usario)</b></ion-label>
+        <ion-input type="email" formControlName="username" placeholder="correo@correo.cl"></ion-input>
+      </ion-item>
+      <div *ngIf="passwordForm.get('username')?.invalid && passwordForm.get('username')?.touched" style="padding: 20px;color: red;">Debe llenar el campo "Correo Electronico" correctamente</div>
+      
+      <ion-item>
+        <ion-label style="color: blue;font-size: 25px;" position="stacked"><b>Contraseña Nueva</b></ion-label>
+        <ion-label style="color: gray;font-size: 15px; font-style: italic;" position="stacked"><b>(La contraseña debe tener mínimo 8 caracteres e incluir 1 mayúscula, 1 minúscula, 1 número y 1 símbolo)</b></ion-label>
+        <ion-input type="password" formControlName="password" placeholder="********"></ion-input>
+      </ion-item>
+      <div *ngIf="passwordForm.get('password')?.invalid && passwordForm.get('password')?.touched" style="padding: 20px;color: red;">Debe llenar el campo "contraseña nueva" correctamente</div>
+
+      <ion-item>
+        <ion-label style="color: blue;font-size: 25px;" position="stacked"><b>Confirmar Contraseña Nueva</b></ion-label>
+        <ion-input type="password" formControlName="passwordconfirm" placeholder="********"></ion-input>
+      </ion-item>
+      <div *ngIf="passwordForm.get('passwordconfirm')?.invalid && passwordForm.get('passwordconfirm')?.touched" style="padding: 20px;color: red;">Debe llenar el campo "contraseña nueva" correctamente</div>
+
+
+      <br>
+      <div class="logo-container">
+        <ion-button #button expand="block" type="submit" style="--background: rgb(255, 196, 0); width: 300px;" >CAMBIAR CONTRASEÑA</ion-button>
+      </div>
+      
+
+    </form>
+    
+  </div>
+  <div class="logo-container">
+    <ion-button #button2 expand="block" style="--background: rgb(13, 13, 92); width: 300px;" (click)="VolverAlLogin()">VOLVER AL LOGIN</ion-button>
+  </div>
+  
+
+</ion-content>

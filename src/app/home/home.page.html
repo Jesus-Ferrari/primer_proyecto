@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background: rgb(13, 13, 92);">
+    <ion-title style="color: white; font-family: 'Calibri'"><b>Docente</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="logo-container">
+    <img class="logo" src="/assets/icon/logoduocuc2.png" alt="">
+  </div>
+  <br>
+  <div>
+    <h1 class="tittle-login"><b> {{ typeuser }} {{name}} {{lastname}} </b></h1>
+    <h1 class="tittle-login"><b> Bienvenido al Portal </b></h1>
+  </div>
+  <div>
+    <h4 class="sub-text"><b>A continuación se muestran las asignaturas que usted dirige</b></h4>
+  </div>
+
+  <ion-grid #table class="table-container">
+    <ion-row>
+      <ion-col size="12">
+        <table>
+          <thead>
+            <tr>
+              <th>Seccion</th>
+              <th>Siglas</th>
+              <th>Jornada</th>
+              <th>Asistencia</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let individuo of secciones">
+              <td>{{ individuo.nombreSeccion }}</td>
+              <td>{{ individuo.siglaSeccion }}</td>
+              <td>{{ individuo.jornada }}</td>
+              <td class="icono-asistencia" size="2">
+                <img src="/assets/icon/icon-asistencia.png" width="20px" (click)="IrAsistenciaSeccion(individuo)">
+              </td>              
+            </tr>
+          </tbody>
+        </table>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="logo-container">
+    <ion-button #button expand="block" style="--background: rgb(255, 196, 0); width: 300px; margin-top: 50px;" (click)="VolverAlLogin()">SALIR</ion-button>
+  </div>
+
+
+</ion-content>

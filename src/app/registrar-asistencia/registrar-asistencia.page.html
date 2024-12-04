@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background: rgb(13, 13, 92);">
+    <ion-title style="color: white; font-family: 'Calibri'"><b>Registrar Asistencia</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="logo-container">
+    <img class="logo" src="/assets/icon/logoduocuc2.png" alt="">
+  </div>
+
+  <div>
+    <h1 class="tittle-login"><b>{{ name }} {{ lastname }}</b></h1>
+  </div>
+
+  <div id="reader"></div>
+
+  <div *ngIf="!isCameraPermissionGranted" class="logo-container">
+    <ion-button #button expand="block" style="--background: rgb(255, 196, 0); width: 300px;" (click)="requestCameraPermission()">ABRIR SCANNER</ion-button>
+  </div>
+
+  <div class="logo-container">
+    <ion-button #button2 expand="block" style="--background: rgb(13, 13, 92); width: 300px;" (click)="VolverAlHome()">VOLVER AL HOME</ion-button>
+  </div>
+
+  <!-- Historial de asistencias -->
+  <div *ngIf="scanHistory.length > 0">
+    <h1 class="tittle-login"><b>Información de Asistencia</b></h1>
+    <div class="history-container">
+      <ion-list>
+        <ion-item *ngFor="let entry of scanHistory" class="history-item">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>{{ entry.date }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <p>{{ entry.result }}</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+
+</ion-content>

@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background: rgb(13, 13, 92);">
+    <ion-title style="color: white; font-family: 'Calibri'"><b>Administrador</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="logo-container">
+    <img class="logo" src="/assets/icon/logoduocuc2.png" alt="">
+  </div>
+  <br>
+  <div>
+    <h1 class="tittle-login"><b>Crear Usuario Nuevo</b></h1>
+  </div>
+  <br>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title style="color: blue;font-size: 25px;" position="stacked">Datos Personales</ion-card-title>
+    </ion-card-header>
+
+    <ion-item>
+      <ion-label style="color: blue;font-size: 25px;" position="stacked"><b>Nombre</b></ion-label>
+      <ion-input type="text" [(ngModel)]="newname" placeholder="Ingrese el nombre"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label style="color: blue;font-size: 25px;" position="stacked"><b>Apellido</b></ion-label>
+      <ion-input type="text" [(ngModel)]="newlastname" placeholder="Ingrese el apellido"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label style="color: blue;font-size: 25px;" position="stacked"><b>Usuario</b></ion-label>
+      <ion-label style="color: blue;font-size: 14px;" position="stacked"><b>(min. 6 caracteres)</b></ion-label>
+      <ion-input type="text" [(ngModel)]="newusername" placeholder="Ingrese el usuario"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label style="color: blue;font-size: 25px;" position="stacked"><b>Contraseña</b></ion-label>
+      <ion-label style="color: blue;font-size: 14px;" position="stacked"><b>(min. 8 y max. 15 caracteres)</b></ion-label>
+      <ion-input type="text" [(ngModel)]="newpassword" placeholder="Ingrese la contraseña"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label style="color: blue;font-size: 25px;" position="stacked"><b>Tipo de Usuario</b></ion-label>
+      <ion-select placeholder="Seleccione" [(ngModel)]="newtypeuser" position="stacked">
+        <ion-select-option value=""></ion-select-option>
+        <ion-select-option value="Docente">Docente</ion-select-option>
+        <ion-select-option value="Estudiante">Estudiante</ion-select-option>
+        <ion-select-option value="Administrador">Administrador</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label style="color: blue;font-size: 25px;" position="stacked"><b>Carrera</b></ion-label>
+      <ion-select placeholder="Seleccione" [(ngModel)]="newcarrer" position="stacked">
+        <ion-select-option value=""></ion-select-option>
+        <ion-select-option value="Informatica">Informatica</ion-select-option>
+        <ion-select-option value="Administracion">Administracion</ion-select-option>
+        <ion-select-option value="Enfermeria">Enfermeria</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+  </ion-card>
+  <br>
+
+  <div class="logo-container">
+    <ion-button #button expand="block" style="--background: rgb(255, 196, 0); width: 300px;" (click)="CrearUsuarioNuevo()">Crear Usuario</ion-button>
+    <ion-button #button2 expand="block" style="--background: rgb(13, 13, 92); width: 300px;" (click)="SalirAlLogin()">Volver al Menu</ion-button>
+  </div>
+
+</ion-content>

@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background: rgb(13, 13, 92);">
+    <ion-title style="color: white; font-family: 'Calibri'"><b>Asistencia Seccion</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="logo-container">
+    <img class="logo" src="/assets/icon/logoduocuc2.png" alt="">
+  </div>
+
+  <div class="tittle-login">
+    <h1><b>  {{par_typeuser}} {{par_username}} </b></h1>
+  </div>
+
+  <div class="tittle-login">
+    <h1><b>Asistencia: {{ seccionSeleccionada?.nombreSeccion }}  {{ seccionSeleccionada?.siglaSeccion }}</b></h1>
+  </div>
+
+  <ion-grid #table class="table-container">
+    <ion-row>
+      <ion-col size="12">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Carrera</th>
+              <th>Asistencia</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let individuo of personas">
+              <td>{{ individuo.newname }}</td>
+              <td>{{ individuo.newlastname }}</td>
+              <td>{{ individuo.newcarrer }}</td>
+              <td> PRUEBA </td>
+            </tr>
+          </tbody>
+        </table>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <br>
+
+  <div class="logo-container">
+    <ion-button #button expand="block" style="--background: rgb(255, 196, 0); width: 300px;" (click)="GenerarQR()">GENERAR QR</ion-button>
+  </div>
+
+  <div class="logo-container">
+    <ion-button #button2 expand="block" style="--background: rgb(13, 13, 92); width: 300px;" (click)="VolverAlListadoAsig()">VOLVER AL LISTADO DE ASIGNATURAS</ion-button>
+  </div>
+
+</ion-content>

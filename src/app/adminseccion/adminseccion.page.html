@@ -1,0 +1,80 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background: rgb(13, 13, 92);">
+    <ion-title style="color: white; font-family: 'Calibri'"><b>Administrador</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="logo-container">
+    <img class="logo" src="/assets/icon/logoduocuc2.png" alt="">
+  </div>
+  <br>
+  <div>
+    <h1 class="tittle-login"><b>Bienvenido  Administrador </b></h1>
+    <h1 class="tittle-login"><b>Crear Seccion Nueva</b></h1>
+  </div>
+  <br>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title style="color: blue;font-size: 25px;" position="stacked">Datos de la Asignatura</ion-card-title>
+    </ion-card-header>
+
+    <ion-item>
+      <ion-label style="color: blue;font-size: 25px;" position="stacked"><b>Nombre de la Asignatura</b></ion-label>
+      <ion-input type="text" [(ngModel)]="nombreSeccion" placeholder="Ingrese el nombre de la asignatura"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label style="color: blue;font-size: 25px;" position="stacked"><b>Siglas</b></ion-label>
+      <ion-input type="text" [(ngModel)]="siglaSeccion" placeholder="Ingrese la sigla"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label style="color: blue;font-size: 25px;" position="stacked"><b>Tipo de Jornada</b></ion-label>
+      <ion-select placeholder="Seleccione" [(ngModel)]="jornada" position="stacked">
+        <ion-select-option value=""></ion-select-option>
+        <ion-select-option value="Diurna">Diurna</ion-select-option>
+        <ion-select-option value="Vespertina">Vespertina</ion-select-option>
+        <ion-select-option value="Online">Online</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+  </ion-card>
+  <br>
+
+  <div class="logo-container">
+    <ion-button #button expand="block" style="--background: rgb(255, 196, 0); width: 300px;" (click)="CrearSeccionNueva()">Crear Seccion</ion-button>
+    <ion-button #button2 expand="block" style="--background: rgb(13, 13, 92); width: 300px;" (click)="modificar()">Modificar Seccion</ion-button>
+    <ion-button #button3 expand="block" style="--background: rgb(255, 196, 0); width: 300px;" (click)="toggleTabla()">Listar Secciones</ion-button>
+  </div>
+
+  <ion-grid *ngIf="mostrarTabla" #table class="table-container">
+    <ion-row>
+      <ion-col size="12">
+        <table>
+          <thead>
+            <tr>
+              <th>Seccion</th>
+              <th>Siglas</th>
+              <th>Jornada</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let individuo of secciones">
+              <td>{{ individuo.nombreSeccion }}</td>
+              <td>{{ individuo.siglaSeccion }}</td>
+              <td>{{ individuo.jornada }}</td>
+              <div class="action-buttons">
+                <ion-button size="small" (click)="buscar(individuo.identificador)">Buscar</ion-button>
+                <ion-button color="danger" size="small" (click)="eliminar(individuo.identificador)">Eliminar</ion-button>
+              </div>
+            </tr>
+          </tbody>
+        </table>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
