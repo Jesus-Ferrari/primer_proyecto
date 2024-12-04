@@ -30,6 +30,6 @@ describe('LoginPage', () => {
   });
 
   it('P1: Existencia de la page Login', () => {
-    expect(component).toBeTruthy(); // Verifica que el componente exista
+    expect(component).toBeTruthy();
   });
 });
