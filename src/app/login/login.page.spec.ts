@@ -1,28 +1,35 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { LoginPage } from './login.page';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
+import { HttpClientTestingModule } from '@angular/common/http/testing'; // Para manejar servicios HTTP si los hay
+import { StorageService } from 'src/app/storage.service'; // Ajusta la ruta si es necesario
 
-//Configura el ambiente de prueba//
 describe('LoginPage', () => {
-  beforeEach(async()  => {
+  let fixture: ComponentFixture<LoginPage>;
+  let component: LoginPage;
+
+  beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-
+        IonicModule.forRoot(), // Configuración para Ionic
         ReactiveFormsModule,
         FormsModule,
-        LoginPage
-
+        HttpClientTestingModule, // Simula servicios HTTP si son usados
+        LoginPage // IMPORTA LoginPage directamente porque es standalone
       ],
-    }).compileComponents //FIn TestBed
+      providers: [
+        { provide: StorageService, useValue: jasmine.createSpyObj('StorageService', ['get', 'set']) } 
+        // Mock del servicio StorageService
+      ]
+    }).compileComponents(); // Compila el entorno de pruebas
 
-  }) //Fin before
+    fixture = TestBed.createComponent(LoginPage); // Crea el componente
+    component = fixture.componentInstance; // Instancia del componente
+    fixture.detectChanges(); // Detecta cambios en el DOM
+  });
 
-  // Prueba 1: Carge page Login//
-  it('P1: Existencia de la page Login', ()  => {
-    const fixture = TestBed.createComponent(LoginPage);
-    const app = fixture.componentInstance;
-
-    expect(app).toBeTruthy();
-  }) //Fin it 1
-
+  it('P1: Existencia de la page Login', () => {
+    expect(component).toBeTruthy(); // Verifica que el componente exista
+  });
 });
