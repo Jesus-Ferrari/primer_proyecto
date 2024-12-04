@@ -18,4 +18,11 @@ describe('GenerarQrPage', () => {
   it('P2: Valor inicial de qrData', () => {
     expect(component.qrData).toBe('Fecha de clases ');
   });
+
+  it('P3: Generación del código QR al pulsar un botón', () => {
+    component.qrData = 'Prueba QR';
+    component.generateQRCode();
+    expect(component.createdCode).toBe('Prueba QR');
+  });
+
 });
