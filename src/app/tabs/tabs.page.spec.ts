@@ -1,33 +1,31 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TabsPage } from './tabs.page'; // Asegúrate de que TabsPage esté importado
-import { ActivatedRoute } from '@angular/router'; // Asegúrate de que la ruta de ActivatedRoute sea correcta
+import { TabsPage } from './tabs.page'; 
+import { ActivatedRoute } from '@angular/router';
 import { StorageService } from 'src/app/storage.service';
-import { Storage } from '@ionic/storage-angular'; // Asegúrate de que la ruta de Storage sea correcta
+import { Storage } from '@ionic/storage-angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { of } from 'rxjs'; // Importamos `of` para crear un observable
+import { of } from 'rxjs';
 
 describe('TabsPage', () => {
   let fixture: ComponentFixture<TabsPage>;
   let component: TabsPage;
 
   beforeEach(async () => {
-    // Crear un mock del ActivatedRoute
     const activatedRouteSpy = jasmine.createSpyObj('ActivatedRoute', ['snapshot']);
     activatedRouteSpy.snapshot = { paramMap: of({ get: () => 'test-param' }) };
 
-    // Crear un mock del Storage
     const storageSpy = jasmine.createSpyObj('Storage', ['create', 'get', 'set', 'remove']);
 
     await TestBed.configureTestingModule({
       imports: [
-        TabsPage, // Aquí importamos el componente Standalone
+        TabsPage,
         FormsModule,
         ReactiveFormsModule,
       ],
       providers: [
-        StorageService, // Servicio dependiente de StorageService
-        { provide: Storage, useValue: storageSpy }, // Mock de Storage
-        { provide: ActivatedRoute, useValue: activatedRouteSpy }, // Mock de ActivatedRoute
+        StorageService,
+        { provide: Storage, useValue: storageSpy },
+        { provide: ActivatedRoute, useValue: activatedRouteSpy },
       ]
     }).compileComponents();
 
@@ -35,7 +33,7 @@ describe('TabsPage', () => {
     component = fixture.componentInstance;
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy(); // Verifica que la página fue creada
+  it('Existencia de la pagina tabs', () => {
+    expect(component).toBeTruthy();
   });
 });

@@ -11,7 +11,7 @@ describe('RegistrarAsistenciaPage', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Existencia de la pagina registrar-asistencia', () => {
     expect(component).toBeTruthy();
   });
 });

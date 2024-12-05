@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { AdminPage } from './admin.page'; // Asegúrate de que AdminPage esté importado
+import { AdminPage } from './admin.page';
 import { StorageService } from 'src/app/storage.service';
-import { Storage } from '@ionic/storage-angular'; // Asegúrate de que la ruta de Storage sea correcta
+import { Storage } from '@ionic/storage-angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('AdminPage', () => {
@@ -9,18 +9,17 @@ describe('AdminPage', () => {
   let component: AdminPage;
 
   beforeEach(async () => {
-    // Crear un mock del Storage
     const storageSpy = jasmine.createSpyObj('Storage', ['create', 'get', 'set', 'remove']);
 
     await TestBed.configureTestingModule({
       imports: [
-        AdminPage, // Aquí importamos el componente Standalone en lugar de declararlo
+        AdminPage,
         FormsModule,
         ReactiveFormsModule,
       ],
       providers: [
-        StorageService, // Servicio dependiente de StorageService
-        { provide: Storage, useValue: storageSpy }, // Mock de Storage
+        StorageService,
+        { provide: Storage, useValue: storageSpy },
       ]
     }).compileComponents();
 
@@ -29,6 +28,6 @@ describe('AdminPage', () => {
   });
 
   it('Existencia de la pagina admin', () => {
-    expect(component).toBeTruthy(); // Verifica que la página fue creada
+    expect(component).toBeTruthy();
   });
 });

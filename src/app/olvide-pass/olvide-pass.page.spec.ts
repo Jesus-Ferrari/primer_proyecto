@@ -11,7 +11,7 @@ describe('OlvidePassPage', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Existencia de la pagina olvide-pass', () => {
     expect(component).toBeTruthy();
   });
 });
