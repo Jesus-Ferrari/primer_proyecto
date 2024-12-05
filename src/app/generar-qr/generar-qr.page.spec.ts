@@ -30,4 +30,9 @@ describe('GenerarQrPage', () => {
     expect(component.createdCode).toBe(expectedCode);
   });
 
+  it('P4: Verificar que el código QR no se muestra inicialmente', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('qrcode')).toBeNull();
+  });
+
 });
