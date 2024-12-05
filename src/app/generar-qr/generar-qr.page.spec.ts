@@ -35,4 +35,15 @@ describe('GenerarQrPage', () => {
     expect(compiled.querySelector('qrcode')).toBeNull();
   });
 
+  it('P5: Actualización de createdCode al llamar a generateQRCode()', () => {
+    component.qrData = 'Nuevo texto QR';
+    component.seccionSeleccionada = { nombreSeccion: 'Sección B', siglaSeccion: 'SB' };
+    component.generateQRCode();
+
+    const formattedDate = new Date().toLocaleDateString();
+    
+    const expectedUpdatedCode = `Nuevo texto QR - ${formattedDate} - Sección: Sección B (SB)`;
+    expect(component.createdCode).toBe(expectedUpdatedCode);
+  });
+
 });
